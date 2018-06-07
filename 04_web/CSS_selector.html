@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+
+        <!-- 메타 태그는 정보를 넣어준다-->
+        <title>데이터 사이언스 스쿨</title>
+        <style media="screen">
+
+
+            a > div.contents > div.name {
+                background-color: red;
+            }
+
+            div.information_panel > div.viewers {
+                background-color: red;
+            }
+
+            /* css selector *
+
+            /* 1. ID selector */
+            /* 아이디를 셀렉할 때는 #(아이디 이름)으로 선택한다 */
+            /* 여러 개를 선택할 때는 "," 로 구분해서 넣어준다 */
+            /*  가능하면 ID로 셀렉팅을 해주는 것이 좋다 */
+            /* #ds1, #ds2{
+                font-size: 34px;
+                color: red;
+            } */
+
+            /* 2. Class selector */
+            /* 클래스를 셀렉할 때는 .(클래스 이름)으로 선택한다 */
+            /* 엘리먼트를 묶어서 같은 CSS를 적용할 때 사용한다 */
+
+            .ds1, .ds2, .ds3{
+                font-size: 24px;
+                margin: 5px 20px 10px 30px;
+                color: red;
+            }
+
+            /* 3. Not selector */
+            /* 셀렉터로 엘리먼트를 하나만 제거하고 싶을 때 사용한다  */
+            .ds:not(.ds1){
+                color: blue;
+            }
+
+            /* 4. first-child selector */
+            .ds:first-child, .ds:last-child{
+                background-color: black;
+            }
+
+            /* 5. first-child selector */
+            /* .ds:last-child{
+                background-color: yellow;
+            } */
+
+            /* 6.nth- : n번째 child를 이용해서 엘리먼트 셀렉트 */
+            .ds:nth-child(1), .ds:nth-child(2){
+                color: green;
+            }
+
+            /* 7. deepth, level로 엘리먼트 셀렉트 */
+            /* 공백문자로 하위 엘리먼트를 셀렉트 했을때, 모든 하위 엘리먼트를 셀렉팅합니다  */
+            /* .constants > h1{
+                font-weight: lighter;
+                color: white;
+                background-color: black;
+            } */
+/*
+body > div > h1{
+    color: red;
+} */
+
+
+
+        </style>
+    </head>
+    <body>
+
+        <!-- <div id="ds1"> ID ds1 </div>
+        <div id="ds2"> ID ds2 </div>
+        <div id="ds3"> ID ds3 </div> -->
+
+        <p class="ds ds1">class ds1</div>
+        <p class="ds ds2">class ds2</div>
+        <p class="ds ds3">class ds3</div>
+
+        <a target="_blank" href="/productions/24182/selling">
+            <div class="contents">
+                <div class="name">[단독특가] Mary Bath Mat</div>
+                <div class="real_cost">25,800</div>
+                <div class="discount">63%</div>
+                <div class="selling_cost">9800원</div>
+            </div>
+        </a>
+
+        <div class="information_panel">
+            <div class="scrappers">9.42K명  스크랩</div>
+            <div class="viewers">469K명 조회</div>
+        </div>
+
+        <!-- <div class="constants">
+            <div class="txt">
+                <h1>inner_1</h1>
+            </div>
+            <h1>inner2</h1>
+        </div> -->
+
+    </body>
+</html>
