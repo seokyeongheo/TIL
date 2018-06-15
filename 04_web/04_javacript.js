@@ -21,6 +21,8 @@ eg. 소켓 설정할 때 사용.
 // /* test */ : 여러줄 주석
 
 // 2.출력
+// console.log('test');
+
 function test(){
     console.log("any");
     console.log("data");
@@ -40,6 +42,9 @@ var {변수명} = "{변수명}"
 _name : private variable, function
 $target : selector 사용할 때. // jquery(JS framework) 쓸 때 사용.
 */
+// var test = 'math';
+// console.log(test);
+
 var name = "sujin";
 console.log(name);
 
@@ -52,6 +57,10 @@ console.log($target);
 (1) (python처럼) +, -, *, /, % 를 기본적으로 사용할 수 있다
 (2) (python과 달리) ++, --를 사용할 수 있다
 */
+// var x = 2;
+// var y = 5;
+// console.log(x * y);
+
 var a = 1;
 var b = 2;
 console.log(a+b);
@@ -91,19 +100,11 @@ null : 값이 없음을 지정
 var a = 1; 이는 메모리의 주소를 받아서 해당 메모리에 값을 지정(저장)한다.
 var a = null; 이는 변수 a에 지정된 메모리 값을 제거한다.
 null이 식별자와 메모리 공간의 연결을 끊으면, garbage collector(GC)는 선언되지 않은 메모리 공간을 반환한다.
-
-
 undefined : 값이 지정되지 않음
 NaN : 존재하지 않는 데이터의 형태
 */
-var a = null;
-console.log(a);
-
-var b;
-console.log(b);
-
-var c = 0/0;
-console.log(c);
+var a = null; var b; var c = 0/0;
+console.log(a, b, c);
 
 // 6.비교연산자
 // (1) (python처럼) !=, ==, >, <, >=, <= 이러한 기본 비교연산자를 사용한다
@@ -113,6 +114,8 @@ console.log(1 == "1"); // true
 
 // (2) (python과 달리) ===라는 비교연산자도 사용한다.
 // ===는 데이터 값과 데이터 타입을 모두 비교한다.
+console.log(1 == 1, 1 == "1", 1 === 1, 1 === "1");
+
 console.log(1 === 1); // true
 console.log(1 === "1"); // false
 
@@ -182,9 +185,22 @@ if(point >= 90){
     console.log("F");
 }
 
+var a = 24;
+if(a % 2 === 0){
+    console.log('even');
+}else if(a % 2 != 0){
+    console.log('odd');
+}
+
 
 // 10. 반복문
 // while, for, do while
+
+var a = 1;
+while(a < 6){
+    console.log(a);
+    a += 1;
+}
 
 // (1) while
 var a = 10;
@@ -214,16 +230,31 @@ for(var i=0; i<10; i++){
     console.log(i);
 }
 
+for(var i=0; i<11; i+=2){
+    console.log(i);
+}
 
 // 11. 배열
 var arr = ['a', 'b', 'c', 'd', 'e'];
 console.log(arr);
 console.log(arr[0]);
 
+var arr = ['a', 'b', 'c'];
+console.log(arr, arr[0]);
+
 // 배열의 크기
 console.log(arr.length);
 
 // 배열 추가하기(python append)
+var arr = ['a', 'b', 'c'];
+arr.push('d');
+arr.unshift('k');
+console.log(arr);
+var last = arr.pop();
+console.log(last);
+var last2 = arr.splice(0,2);
+console.log(last2);
+
 arr.push('f');
 console.log(arr);
 arr.unshift('z');
@@ -241,6 +272,15 @@ console.log(arr, result2);
 // 12. 객체(Object)
 
 // 객체 선언
+var lov = {};
+lov.name = 'mandu';
+lov.familyName = 'Kim';
+console.log(lov);
+
+for(var key in lov){
+    console.log(key, lov[key]);
+}
+
 var obj = {};
 obj.name = "sujin";
 obj.familyName = "Kim";
@@ -277,6 +317,7 @@ var Module = Module || {};
     };
 })(Module); // 함수를 선언과 동시에 바로 실행한다.
 
+// 함수형 프로그래밍
 
 // 14. 함수
 // 호이스팅(hoisting) : 변수를 선언하면, 변수가 최상단으로 올라가서 먼저 실행된다
@@ -296,7 +337,7 @@ console.log(result2);
 // 15. 스코프
 var a = "dss1";
 function disp(){
-    a = "dss2"; // 전역(global)의 변수 a를 가져온다
+    a = "dss2"; // 'var'을 쓰지 않으면 전역(global)의 변수 a를 가져온다.
     console.log(a); // dss2
 }
 disp();
@@ -314,7 +355,15 @@ console.log(a);
 // 16. 즉시실행함수, 익명함수
 // JS에서 즉시실행함수를 쓰는 이유는, JS가 프론트엔드 언어이기 때문이다.
 // 프론트엔드 언어는 코드가 다 노출되기 때문에 누구나 브라우져에서 함수를 마음대로 가져다가 쓸 수 있다.
-// 이를 방지하기 위해 즉시실행함수, 익명함수를 사용한다.
+// 이를 방지하기 위해 즉시실행함수, 익명함수를 사용한다. 보안에 더 유리하다.
+
+(function(){
+    var name = 'seokyeong';
+    var disp2 = function(){
+        console.log(name);
+    };
+    disp2();
+})();
 
 (function(){
     var name = 'sujin';
@@ -335,6 +384,21 @@ disp();
 // argument로 받은 함수를 실행한다.
 // 비동기 통신을 할 때 주로 사용한다.
 
+function getAny(call, n1, n2){
+    var res = n1 + n2;
+    call(res);
+}
+function disp(result){
+    console.log(result);
+}
+
+function sqrt(result){
+    console.log(result*result);
+}
+
+getAny(disp, 2, 3);
+getAny(sqrt, 2, 3);
+
 function getData(callback, num1, num2){
     var result = num1 + num2; // code
     callback(result); // code가 끝나고 지정한 특정 함수를 실행한다
@@ -353,4 +417,4 @@ getData(sqrt, 2, 3);
 
 
 // 18. 클로저(팩토리패턴으로 객체 생성), 프로토타입, es6 문법
-// 추가 내용. 
+// 추가 내용.
