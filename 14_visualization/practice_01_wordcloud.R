@@ -3,12 +3,16 @@ install.packages('tm')
 install.packages('wordcloud')
 install.packages('RColorBrewer')
 install.packages('SnowballC')
+install.packages('KoNLP')
+install.packages('rJava')
 
 # load library
+library(RColorBrewer)
 library(tm)
 library(wordcloud)
-library(RColorBrewer)
 library(SnowballC)
+library(KoNLP)
+library(rJava)
 
 # load text
 docu <- readLines("~/Dropbox/TIL/14_visualization/stevejobstandford.txt", encoding="UTF-8")
